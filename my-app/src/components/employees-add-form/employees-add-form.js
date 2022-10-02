@@ -16,6 +16,7 @@ class EmployeesAddForm extends Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
+        if(this.state.name.length < 3 || !this.state.name.match(/[A-Za-z]/ig) || !this.state.salary) return;
         this.props.onAddItem(this.state.name, this.state.salary);
         this.setState({
             name: '',
